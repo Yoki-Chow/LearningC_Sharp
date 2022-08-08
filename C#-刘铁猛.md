@@ -148,12 +148,56 @@ namespace ClassAndInstance
 
 ## 静态成员与实例成员  
 * 静态（static）成员在语义上表示他是“类的成员”。具体参考官方[static](https://docs.microsoft.com/zh-cn/dotnet/csharp/language-reference/keywords/static)  
-
-* 实例（非静态）成员在语义上表示他是“对象的成员”  
+表示该成员隶属于某个类，指的是这个类与生俱来的，抽象出来之后在语义上就有的成员。  
+比如：人这个类，属性成员有，人的总数，人的增长。但是这几个属性不能隶属于某一个实例，对于实例而言这些属性是没有意义的。  
+通常，静态的方法是可以直接通过class.method直接进行访问。
+* 实例（非静态）成员在语义上表示他是“对象的成员”
+所有非静态的成员就是实例成员。  
+比如：人有身高，体重。每个实例的属性是不一样的，有的人高有的人矮。但是身高这个属性放到人这个类里面，只能说是平均身高和平均体重。 
+```cs
+namespace StaticSample
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Console.Writeline("Hello!");//这里的Writeline就是属于Console类下的一个静态的方法  
+            Form form = new Form();//创建一个引用变量
+            form.Text = "Hello";//这里的访问的方法就是实例方法
+            form.ShowDialog();
+        }
+    }
+}
+```
+  
 * 绑定（Bingding）指的是编译器如何把一个成员与类或对象关联起来  
     * “.”————成员访问操作符  
- 
 
+## 作业  
+在VS中按照例子的方式自己将例子编写出来  
 
+# 3、基本元素概览，初识类型、变量与方法，算法简介  
+* 构成C#语言的基本元素  
+* 简要介绍类型、变量与方法  
+* 算法简介  
 
+## 构成C#语言的基本元素  
+* 关键字(Keyword)
+* 操作符(Operator)
+* 标识符(Identifier)
+* 标点符号
+* 文本
+* 注释与空白  
 
+### 关键字(Keyword)  
+构成编程语言的基本词汇，用最接近人类的语言，用仅有的词汇将完整的逻辑表达出来即可。  
+
+具体关键字列表官方文档——[C#-关键字](https://docs.microsoft.com/zh-cn/dotnet/csharp/language-reference/keywords/)  
+
+### 操作符(Operator)  
+操作符也叫运算符,除了普通的加减乘除数学运算符外，C#还包含一些自己独有的逻辑运算符
+
+具体操作符列表官方文档——[C#-操作符](https://docs.microsoft.com/zh-cn/dotnet/csharp/language-reference/operators/)  
+
+### 标识符(Identifier)
+* 如何创建一个符合语言规范的标识符  
