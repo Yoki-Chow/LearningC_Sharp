@@ -171,7 +171,7 @@ namespace StaticSample
 ```
   
 * 绑定（Bingding）指的是编译器如何把一个成员与类或对象关联起来  
-    * “.”————成员访问操作符  
+    * “ . ” — 成员访问操作符  
 
 ## 作业  
 在VS中按照例子的方式自己将例子编写出来  
@@ -190,14 +190,21 @@ namespace StaticSample
 * 注释与空白  
 
 ### 关键字(Keyword)  
-构成编程语言的基本词汇，用最接近人类的语言，用仅有的词汇将完整的逻辑表达出来即可。  
+* 构成编程语言的基本词汇，用最接近人类的语言，用仅有的词汇将完整的逻辑表达出来即可。  
 
-具体关键字列表官方文档——[C#-关键字](https://docs.microsoft.com/zh-cn/dotnet/csharp/language-reference/keywords/)  
+* 具体关键字列表官方文档——[C#-关键字](https://docs.microsoft.com/zh-cn/dotnet/csharp/language-reference/keywords/)  
 
 ### 操作符(Operator)  
-操作符也叫运算符,除了普通的加减乘除数学运算符外，C#还包含一些自己独有的逻辑运算符
+* 操作符也叫运算符,除了普通的加减乘除数学运算符外，C#还包含一些自己独有的逻辑运算符
 
-具体操作符列表官方文档——[C#-操作符](https://docs.microsoft.com/zh-cn/dotnet/csharp/language-reference/operators/)  
+* 具体操作符列表官方文档——[C#-操作符](https://docs.microsoft.com/zh-cn/dotnet/csharp/language-reference/operators/)  
 
 ### 标识符(Identifier)
-* 如何创建一个符合语言规范的标识符  
+* 标识符相当于名称，给类、变量、类的成员（属性、方法、事件....）等起名都称为标识符。   
+* 标识符可以用汉语命名，但不建议。
+
+* 如何给标识符规范命名参考——[C#标识符命名规则和约定](https://docs.microsoft.com/zh-cn/dotnet/csharp/fundamentals/coding-style/identifier-names)  
+
+* 标识符可读性，大小写规范问题[驼峰命名法](https://baike.baidu.com/item/%E9%A9%BC%E5%B3%B0%E5%91%BD%E5%90%8D%E6%B3%95/7560610)和[帕斯卡命名法](https://baike.baidu.com/item/%E5%B8%95%E6%96%AF%E5%8D%A1%E5%91%BD%E5%90%8D%E6%B3%95/9464494)  
+* 命名规范，比如：属性，必须是一个名词，或者复数名词；方法，必须是一个动词，或者动词短语。无论什么标识符都需要有别人可以读懂的意义，以便于维护。  
+* 方法名
