@@ -169,6 +169,7 @@ namespace StaticSample
     }
 }
 ```
+ 
   
 * 绑定（Bingding）指的是编译器如何把一个成员与类或对象关联起来  
     * “ . ” — 成员访问操作符  
@@ -176,6 +177,7 @@ namespace StaticSample
 ## 作业  
 在VS中按照例子的方式自己将例子编写出来  
 
+---
 # 3、基本元素概览，初识类型、变量与方法，算法简介  
 * 构成C#语言的基本元素  
 * 简要介绍类型、变量与方法  
@@ -205,6 +207,220 @@ namespace StaticSample
 
 * 如何给标识符规范命名参考——[C#标识符命名规则和约定](https://docs.microsoft.com/zh-cn/dotnet/csharp/fundamentals/coding-style/identifier-names)  
 
-* 标识符可读性，大小写规范问题[驼峰命名法](https://baike.baidu.com/item/%E9%A9%BC%E5%B3%B0%E5%91%BD%E5%90%8D%E6%B3%95/7560610)和[帕斯卡命名法](https://baike.baidu.com/item/%E5%B8%95%E6%96%AF%E5%8D%A1%E5%91%BD%E5%90%8D%E6%B3%95/9464494)  
+* 标识符可读性，大小写规范问题[驼峰命名法](https://baike.baidu.com/item/%E9%A9%BC%E5%B3%B0%E5%91%BD%E5%90%8D%E6%B3%95/7560610)和[帕斯卡命名法](https://baike.baidu.com/item/%E5%B8%95%E6%96%AF%E5%8D%A1%E5%91%BD%E5%90%8D%E6%B3%95/9464494)。在C#中变量名一般都用的是驼峰法，类名、命名空间等都用帕斯卡命名法  
 * 命名规范，比如：属性，必须是一个名词，或者复数名词；方法，必须是一个动词，或者动词短语。无论什么标识符都需要有别人可以读懂的意义，以便于维护。  
-* 方法名
+
+### 标点符号  
+* 标点符号不参与C#程序的运算  
+
+### 文本(字面值)  
+* 整数 int、long  
+
+* 实数 float、double   
+* 字符 char  只能用单引号  
+* 字符串 string  用双引号，  
+（注意，字符与字符串是完全不同的两个类型）
+* 布尔  
+* 空（null）  
+能编译但不能调用，  
+### 注释与空白  
+* 单行和多行  
+* 空白    
+（编辑文档格式，快捷键ctrl+D,E；或者编辑→高级→设置文档格式）  
+
+## 初识类型、变量和方法  
+* 初识类型（Type）
+    * 亦称数据类型（Data Type）  
+* 变量识存放数据的地方，简称“数据”  
+    * 变量的声明  
+    * 变量的使用  
+* 方法（旧称函数）是处理数据的逻辑，又称“算法”  
+    * 方法的声明  
+    * 方法的调用  
+* 程序 = 数据 + 算法  
+    * 有了变量和方法就可以写有意义的程序了  
+
+### 类型  
+* 值类型、引用类型等——[C#数据类型](https://docs.microsoft.com/zh-cn/dotnet/csharp/fundamentals/types/)
+
+### 变量 
+变量就是存放数据的地方  
+```cs
+namespace MyExample
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            double x;//变量的声明
+            x = 3.0;//给变量赋值
+        }
+    }
+}
+```
+
+### 方法  
+方法相当于数据的加工厂  
+```cs
+namespace MyExample
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Calculator c = new Caluculataor();//括号内输入的应当是一个变量 
+            int x = c.Add(2,3);//输入常量进行计算
+            Console.WriteLine(x);
+
+            string str = c.getToday();
+            Console.WriteLine(str);
+
+            c.PrintSum(4,6)//无返回值，直接返回10
+        }
+    }
+}
+
+class Calculator
+{
+    public int Add(int a,int b)//在类下面声明Add方法并声明返回的数据类型，括号中输入该方法需要引用的参数，
+    {
+        int result = a + b;//声明一个变量，将输入的参数放到变量中运算，并返回一个int类型值
+        return result;//将值返回到int Add中
+    }
+
+    public string getToday()//无需参数也可以返回值
+    {
+        int day = DataTime.Now.Day;
+        return day.ToString();
+    }
+
+    public void PrintSum(int a,int b)//无返回值的方法，前缀为void
+    {
+        int result = a + b;
+        Console.WriteLine(result);//不返回值，直接打印
+    }
+
+}
+```
+
+## 算法  
+* 循环  
+* 递归  
+* 计算1~100的和  
+### 循环  
+需求：如果给你一个整数X，需要将X~1打印出来。  
+```cs
+namespace MyExample
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Calculator c = new Calculator();
+            c.PrintXTo(10)
+        }
+    }
+
+    class Calculator
+    {
+        public void PrintXTo(int x)
+        {
+            for(int i = x;i > 0; i--)
+            {
+                Console.WriteLine(i);
+            }
+        }
+    } 
+}
+```
+### [递归](https://baike.baidu.com/item/%E9%80%92%E5%BD%92/1740695)  
+程序调用自身的编程技巧称为递归（recursion）。  
+例如，数列。
+```cs
+namespace MyExample
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Calculator c = new Calculator();
+            c.PrintXTo(10)
+        }
+    }
+
+    class Calculator
+    {
+        public void PrintXTo1(int x)
+        {
+            if(x==1)
+            {
+                Console.WriteLine(x);
+            }
+            else
+            {
+                Console.WriteLine(x);
+                PrintXTo1(x - 1);
+            }
+        }
+    } 
+}
+```
+### 计算1~100的和
+* 使用循环实现
+```cs
+class Program
+{
+    static void Main(string[] args)
+    {
+        plus P = new plus();
+        int 结果 = P.A(100);
+        Console.WriteLine(结果);
+    }
+
+    class plus
+    {
+        public int A(int x)
+        {
+            int result = 0;
+            for (int i = 0; i < x + 1; i++)
+            {
+                result = (result + i);
+            }
+            return result;
+        }
+    }
+}
+```    
+结果为
+```
+5050
+```
+* 使用递归实现  
+```cs
+class Program
+{
+    static void Main(string[] args)
+    {
+        plus P = new plus();
+        int 结果 = P.A(100);
+        Console.WriteLine(结果);
+    }
+
+    class plus
+    {
+        public int A(int x)
+        {
+            if (x == 1)
+            {
+                return 1;
+            }
+            else
+            {
+                int result = x + A(x - 1);//调用自身
+                return result;
+            }
+
+        }
+    }
+}
+```
